@@ -14,9 +14,13 @@ github:
     addComment: true
     # add a "Review in Gitpod" button to the pull request's description (defaults to false)
     addBadge: true
+
 tasks:
   - name: get MVN ready
     before: cd demo && mvn clean && mvn install
+  
+  - name: dev!
+    command: gp open demo/src/main/java/com/subinamathew/demo/controller/Controller.java
 
 ports:
 - port: 8080
