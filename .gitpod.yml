@@ -16,7 +16,11 @@ github:
     addBadge: false
 tasks:
   - name: get MVN ready
-    before: mvn clean && mvn install
+    before: cd demo && mvn clean && mvn install
+
+ports:
+- port: 8080
+  onOpen: open-preview
 
 vscode:
   extensions:
