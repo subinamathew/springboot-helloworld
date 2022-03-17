@@ -1,3 +1,5 @@
+image: opensuse/leap
+
 github:
   prebuilds:
     # enable for the default branch (defaults to true)
