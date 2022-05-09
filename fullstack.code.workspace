@@ -1,7 +1,7 @@
 {
     "folders": [
         {
-            "path": "../febe-be-spring"
+            "path": "../springboot-helloworld"
         },
         {
             "path": "../febe-fe-angular"

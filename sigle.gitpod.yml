@@ -1,6 +1,6 @@
 tasks:
   - name: get MVN ready
-    init: mvn clean && mvn install -DsktpTests
+    init: mvn clean && mvn install -DskipTests
     command: |
       gp open src/main/java/com/subinamathew/demo/controller/Controller.java
       java -jar target/*.jar
