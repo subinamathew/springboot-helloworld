@@ -21,10 +21,26 @@ tasks:
       npm audit fix
       gp env CHROME_BIN=/usr/bin/google-chrome
       gp env BROWSER="Chrome_without_Sandbox"
-
     command:  |
       { gp await-port 4200 && sleep 5 && gp preview $(gp url 4200) & } & > /dev/null
+      gp await-port 8080
+      BACKEND_URL=$(gp url 8080)
+      sed 's,8080-replaceME,'"$BACKEND_URL"',' src/environments/environment.gitpod.template.ts > src/environments/environment.mygitpod.ts
       npm start
+
+ports:
+  - port: 8080
+    onOpen: ignore
+    visibility: public
+
+  - port: 4200
+    onOpen: open-browser
+
+  - port: 5900
+    onOpen: ignore
+
+  - port: 6080
+    onOpen: ignore
 
 vscode:
   extensions:
