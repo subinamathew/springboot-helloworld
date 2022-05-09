@@ -30,8 +30,7 @@ public class Controller {
         HashMap<String, String> detail2 = new HashMap<>();
         detail2.put("url", "https://gitlab.com/gitpod-examples/fe-angular");
         detail2.put("kind", "Angular");
-        detail.put("instance", "frontend");
-
+        detail2.put("instance", "frontend");
         listOfMaps.add(detail2);
         
         return listOfMaps;
