@@ -1,19 +1,10 @@
-github:
-  prebuilds:
-    # enable for the default branch (defaults to true)
-    master: true
-# enable for all branches in this repo (defaults to false)
-    branches: false
-# enable for pull requests coming from this repo (defaults to true)
-    pullRequests: true
-# enable for pull requests coming from forks (defaults to false)
-    pullRequestsFromForks: false
-# add a check to pull requests (defaults to true)
-    addCheck: true
-# add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
-    addComment: true
-# add a "Review in Gitpod" button to the pull request's description (defaults to false)
-    addBadge: true
+image: gitpod/workspace-full-vnc
+
+additionalRepositories:
+  - url: https://gitlab.com/gitpod-examples/fe-angular
+    checkoutLocation: febe-fe-angular
+
+workspaceLocation: febe-be-spring/fullstack.code.workspace
 
 tasks:
   - name: get MVN ready
@@ -22,10 +13,23 @@ tasks:
       gp open src/main/java/com/subinamathew/demo/controller/Controller.java
       java -jar target/*.jar
 
-ports:
-- port: 8080
-  onOpen: open-preview
+  - name: frontend
+    before: |
+      cd ../febe-fe-angular
+      npm install -g @angular/cli
+      npm install
+      npm audit fix
+      gp env CHROME_BIN=/usr/bin/google-chrome
+      gp env BROWSER="Chrome_without_Sandbox"
+      
+    command:  |
+      { gp await-port 4200 && sleep 5 && gp preview $(gp url 4200) & } & > /dev/null
+      npm start
 
 vscode:
   extensions:
+    - Angular.ng-template
+    - ecmel.vscode-html-css
+    - esbenp.prettier-vscode
+    - dbaeumer.vscode-eslint
     - vscjava.vscode-java-pack
