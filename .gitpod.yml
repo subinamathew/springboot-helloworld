@@ -17,10 +17,10 @@ github:
 
 tasks:
   - name: get MVN ready
-    before: mvn clean && mvn install
-
-  - name: dev!
-    command: gp open src/main/java/com/subinamathew/demo/controller/Controller.java
+    init: mvn clean && mvn install -DsktpTests
+    command: |
+      gp open src/main/java/com/subinamathew/demo/controller/Controller.java
+      java -jar target/*.jar
 
 ports:
 - port: 8080
