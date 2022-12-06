@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: springboot-helloworld
+  description: |
+    This is used to build hello world with Gitpod.
+  links:
+    - title: Gitpod
+      url: https://gitpod.io/#https://github.com/subinamathew/springboot-helloworld
+    - title: Documentation
+      url: https://github.com/subinamathew/springboot-helloworld/blob/master/README.md
+  annotations:
+    github.com/project-slug: subinamathew/springboot-helloworld
+    backstage.io/techdocs-ref: dir:.
+    lighthouse.com/website-url: https://backstage.io
+spec:
+  type: library
+  owner: Subin
+  lifecycle: experimental
