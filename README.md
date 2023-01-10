@@ -1,5 +1,4 @@
 # Springboot Hello World
 
-This is used to build hello  world with Gitpod.
+This is a mult repo application that can be run on Gitpod. This relies also on another repo running angular frontend
 
-TODO: add gitpod
